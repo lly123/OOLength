@@ -1,0 +1,12 @@
+OOWorkshop.sln
+OOWorkshop.sln.DotSettings.user
+OOWorkshop.suo
+_Resharper.OOWorkshop/
+OOWorkshop/bin
+OOWorkshop/obj
+OOWorkshopTest/bin
+OOWorkshopTest/obj
+OOWorkshop/Properties
+OOWorkshopTest/Properties
+OOWorkshop.csproj
+OOWorkshopTest.csproj

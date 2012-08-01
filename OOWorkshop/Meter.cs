@@ -21,6 +21,7 @@ namespace OOWorkshop
 
         public static Meter operator-(Meter m1, Meter m2)
         {
+            if (m1.number - m2.number < 0) throw new NegativeValueException();
             return new Meter(m1.number - m2.number);
         }
 

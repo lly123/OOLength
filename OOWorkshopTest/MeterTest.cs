@@ -45,5 +45,14 @@ namespace OOWorkshopTest
         {
             (threeMeters - oneMeter).should_not_be(oneMeter);
         }
+
+        [Test]
+        [ExpectedException(typeof(NegativeValueException))]
+        public void should_throw_exception_given_1m_minius_3m()
+        {
+            var meaningless = oneMeter - threeMeters;
+        }
     }
+
+    
 }

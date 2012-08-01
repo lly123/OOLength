@@ -27,7 +27,7 @@ namespace OOWorkshop
         public override bool Equals(object obj)
         {
             var decimeter = obj as Decimeter;
-            return decimeter.Number == Number;
+            return decimeter.Number.Equals(Number);
         }
 
         public override int GetHashCode()

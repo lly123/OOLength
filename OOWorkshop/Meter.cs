@@ -14,12 +14,12 @@ namespace OOWorkshop
 
         public double Number { get; private set; }
 
-        public static Meter operator+(Meter m1, Meter m2)
+        public static Meter operator +(Meter m1, Meter m2)
         {
             return new Meter(m1.Number + m2.Number);
         }
 
-        public static Meter operator-(Meter m1, Meter m2)
+        public static Meter operator -(Meter m1, Meter m2)
         {
             if (m1.Number - m2.Number < 0) throw new NegativeValueException();
             return new Meter(m1.Number - m2.Number);
@@ -27,15 +27,19 @@ namespace OOWorkshop
 
         public override bool Equals(object obj)
         {
-            var meter = obj is Decimeter ? 
-                convertDecimeterToMeter(obj as Decimeter) : (obj as Meter);
-            return meter.Number == Number;                
-            
+            var meter = ConvertToMeter(obj);
+            return meter.Number.Equals(Number);
         }
 
-        private Meter convertDecimeterToMeter(Decimeter decimeter)
+        private Meter ConvertToMeter(object obj)
         {
-            return new Meter(decimeter.Number / 10);
+            if (obj is Decimeter) return ConvertDecimeterToMeter(obj as Decimeter);
+            return (obj as Meter);
+        }
+
+        private Meter ConvertDecimeterToMeter(Decimeter decimeter)
+        {
+            return new Meter(decimeter.Number/10);
         }
 
         public override int GetHashCode()

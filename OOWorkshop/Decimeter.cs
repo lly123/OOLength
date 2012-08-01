@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OOWorkshop
 {
-    internal class Decimeter
+    public class Decimeter
     {
         public double Number { get; private set; }
 

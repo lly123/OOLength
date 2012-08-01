@@ -14,5 +14,20 @@ namespace OOWorkshopTest
         {
             Assert.AreNotEqual(expectedMeter, meter);
         }
+
+        public static void should_be(this Decimeter decimeter, Decimeter expectedDecimeter)
+        {
+            Assert.AreEqual(expectedDecimeter, decimeter);
+        }
+
+        public static void should_not_be(this Decimeter decimeter, Decimeter expectedDecimeter)
+        {
+            Assert.AreNotEqual(expectedDecimeter, decimeter);
+        }
+
+        public static void should_be(this Decimeter decimeter, Meter expectedMeter)
+        {
+            Assert.AreEqual(expectedMeter, decimeter);
+        }
     }
 }

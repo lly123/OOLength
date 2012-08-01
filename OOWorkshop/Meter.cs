@@ -14,9 +14,9 @@ namespace OOWorkshop
             this.number = number;
         }
 
-        public Meter Plus(Meter oneMeter)
+        public static Meter operator+(Meter m1, Meter m2)
         {
-            return new Meter(number + oneMeter.number);
+            return new Meter(m1.number + m2.number);
         }
 
         public override bool Equals(object obj)
@@ -25,6 +25,9 @@ namespace OOWorkshop
             return meter.number == number;
         }
 
-
+        public override int GetHashCode()
+        {
+            return number;
+        }
     }
 }

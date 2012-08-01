@@ -15,7 +15,7 @@ namespace OOWorkshopTest
         {
             var oneMeter = new Meter(1);
             var twoMeters = new Meter(2);
-            Assert.AreEqual(twoMeters, oneMeter.Plus(oneMeter));
+            Assert.AreEqual(twoMeters, oneMeter + oneMeter);
         }
 
         [Test]
@@ -23,7 +23,7 @@ namespace OOWorkshopTest
         {
             var threeMeters = new Meter(3);
             var oneMeter = new Meter(1);
-            Assert.AreNotEqual(new Meter(2), threeMeters.Plus(oneMeter));
+            Assert.AreNotEqual(new Meter(2), threeMeters + oneMeter);
         }
     }
 }

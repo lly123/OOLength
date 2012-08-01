@@ -7,37 +7,32 @@ namespace OOWorkshop
 {
     internal class Decimeter
     {
-        private double number;
+        public double Number { get; private set; }
 
         public Decimeter(double number)
         {
-            this.number = number;
+            this.Number = number;
         }
 
         public static Decimeter operator +(Decimeter dm1, Decimeter dm2)
         {
-            return new Decimeter(dm1.number + dm2.number);
+            return new Decimeter(dm1.Number + dm2.Number);
         }
 
         public static Decimeter operator +(Decimeter dm, Meter m)
         {
-            return new Decimeter(dm.number + 10*m.Number);
-        }
-
-        public double Number
-        {
-            get { return number; }
+            return new Decimeter(dm.Number + 10 * m.Number);
         }
 
         public override bool Equals(object obj)
         {
             var decimeter = obj as Decimeter;
-            return decimeter.number == number;
+            return decimeter.Number == Number;
         }
 
         public override int GetHashCode()
         {
-            return number.GetHashCode();
+            return Number.GetHashCode();
         }
     }
 }

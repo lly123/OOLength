@@ -7,44 +7,40 @@ namespace OOWorkshop
 {
     public class Meter
     {
-        private double number;
-
         public Meter(double number)
         {
-            this.number = number;
+            this.Number = number;
         }
 
-        public double Number
-        {
-            get { return number; }
-        }
+        public double Number { get; private set; }
 
         public static Meter operator+(Meter m1, Meter m2)
         {
-            return new Meter(m1.number + m2.number);
+            return new Meter(m1.Number + m2.Number);
         }
 
         public static Meter operator-(Meter m1, Meter m2)
         {
-            if (m1.number - m2.number < 0) throw new NegativeValueException();
-            return new Meter(m1.number - m2.number);
+            if (m1.Number - m2.Number < 0) throw new NegativeValueException();
+            return new Meter(m1.Number - m2.Number);
         }
 
         public override bool Equals(object obj)
         {
-            if (obj is Meter)
-            {
-                var meter = obj as Meter;
-                return meter.number == number;                
-            }
+            var meter = obj is Decimeter ? 
+                convertDecimeterToMeter(obj as Decimeter) : (obj as Meter);
+            return meter.Number == Number;                
+            
+        }
 
-            var decimeter = obj as Decimeter;
-            return decimeter.Number == number * 10;
+        private Meter convertDecimeterToMeter(Decimeter decimeter)
+        {
+            return new Meter(decimeter.Number / 10);
         }
 
         public override int GetHashCode()
         {
-            return number.GetHashCode();
+            return Number.GetHashCode();
         }
     }
 }

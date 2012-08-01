@@ -14,17 +14,16 @@ namespace OOWorkshopTest
         public void should_equal_2m_given_1m_plus_1m()
         {
             var oneMeter = new Meter(1);
-            var twoMeter = new Meter(2);
-            var result = oneMeter.Plus(oneMeter);
-            Assert.AreEqual(twoMeter, result);
+            var twoMeters = new Meter(2);
+            Assert.AreEqual(twoMeters, oneMeter.Plus(oneMeter));
         }
 
         [Test]
         public void should_not_equal_2m_given_3m_plus_1m()
         {
-            var threeMeter = new Meter(3);
+            var threeMeters = new Meter(3);
             var oneMeter = new Meter(1);
-            Assert.AreNotEqual(new Meter(2), threeMeter.Plus(oneMeter));
+            Assert.AreNotEqual(new Meter(2), threeMeters.Plus(oneMeter));
         }
     }
 }

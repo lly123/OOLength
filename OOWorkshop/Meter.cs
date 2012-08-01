@@ -16,7 +16,7 @@ namespace OOWorkshop
 
         public Meter Plus(Meter oneMeter)
         {
-            return new Meter(1);
+            return new Meter(number + oneMeter.number);
         }
 
         public override bool Equals(object obj)

@@ -7,11 +7,16 @@ namespace OOWorkshop
 {
     public class Meter
     {
-        private int number;
+        private double number;
 
-        public Meter(int number)
+        public Meter(double number)
         {
             this.number = number;
+        }
+
+        public double Number
+        {
+            get { return number; }
         }
 
         public static Meter operator+(Meter m1, Meter m2)
@@ -27,13 +32,19 @@ namespace OOWorkshop
 
         public override bool Equals(object obj)
         {
-            var meter = obj as Meter;
-            return meter.number == number;
+            if (obj is Meter)
+            {
+                var meter = obj as Meter;
+                return meter.number == number;                
+            }
+
+            var decimeter = obj as Decimeter;
+            return decimeter.Number == number * 10;
         }
 
         public override int GetHashCode()
         {
-            return number;
+            return number.GetHashCode();
         }
     }
 }

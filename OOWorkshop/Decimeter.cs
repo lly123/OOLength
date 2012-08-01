@@ -5,23 +5,28 @@ using System.Text;
 
 namespace OOWorkshop
 {
-    class Decimeter
+    internal class Decimeter
     {
-        private int number;
+        private double number;
 
-        public Decimeter(int number)
+        public Decimeter(double number)
         {
             this.number = number;
         }
 
-        public static Decimeter operator+(Decimeter dm1, Decimeter dm2)
+        public static Decimeter operator +(Decimeter dm1, Decimeter dm2)
         {
             return new Decimeter(dm1.number + dm2.number);
         }
 
-        public static Decimeter operator+(Decimeter dm, Meter m)
+        public static Decimeter operator +(Decimeter dm, Meter m)
         {
-            return new Decimeter(11);
+            return new Decimeter(dm.number + 10*m.Number);
+        }
+
+        public double Number
+        {
+            get { return number; }
         }
 
         public override bool Equals(object obj)
@@ -32,7 +37,7 @@ namespace OOWorkshop
 
         public override int GetHashCode()
         {
-            return number;
+            return number.GetHashCode();
         }
     }
 }

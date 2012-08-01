@@ -19,6 +19,11 @@ namespace OOWorkshop
             return new Meter(m1.number + m2.number);
         }
 
+        public static Meter operator-(Meter m1, Meter m2)
+        {
+            return new Meter(m1.number - m2.number);
+        }
+
         public override bool Equals(object obj)
         {
             var meter = obj as Meter;

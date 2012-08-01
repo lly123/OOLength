@@ -25,25 +25,25 @@ namespace OOWorkshopTest
         [Test]
         public void should_equal_2m_given_1m_plus_1m()
         {
-            Assert.AreEqual(twoMeters, oneMeter + oneMeter);
+            (oneMeter + oneMeter).should_be(twoMeters);
         }
 
         [Test]
         public void should_not_equal_2m_given_3m_plus_1m()
         {
-            Assert.AreNotEqual(twoMeters, threeMeters + oneMeter);
+            (threeMeters + oneMeter).should_not_be(twoMeters);
         }
 
         [Test]
         public void should_equal_1m_given_2m_minus_1m()
         {
-            Assert.AreEqual(oneMeter, twoMeters - oneMeter);
+            (twoMeters - oneMeter).should_be(oneMeter);
         }
 
         [Test]
         public void should_not_equal_1m_given_3m_minus_1m()
         {
-            Assert.AreNotEqual(oneMeter, threeMeters - oneMeter);
+            (threeMeters - oneMeter).should_not_be(oneMeter);
         }
     }
 }

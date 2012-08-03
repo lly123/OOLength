@@ -12,16 +12,14 @@ namespace OOWorkshop
             Number = number;
         }
 
+        public override int Factor()
+        {
+            return 10;
+        }
+
         public static Decimeter operator +(Decimeter dm, Length length)
         {
-            int factor = 1;
-
-            if (length is Meter)
-            {
-                factor = 10;
-            }
-
-            return new Decimeter(dm.Number + factor * length.Number);
+            return new Decimeter((dm.Number * dm.Factor() + length.Factor() * length.Number) / dm.Factor());
         }
 
         public override bool Equals(object obj)

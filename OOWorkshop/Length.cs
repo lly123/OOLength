@@ -6,8 +6,10 @@ using System.Text;
 namespace OOWorkshop
 {
    
-    public class Length
+    public abstract class Length
     {
         public double Number { get; protected set; }
+
+        public abstract int Factor();
     }
 }

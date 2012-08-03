@@ -21,21 +21,21 @@ namespace OOWorkshopTest
         [Test]
         public void should_equal_2cm_given_1cm_plus_1cm()
         {
-            Assert.AreEqual(new Centimeter(2), oneCM + oneCM);
+            (oneCM + oneCM).should_be(new Centimeter(2));
         }
 
         [Test]
         public void should_equal_11_centimeters_given_1_centimeter_and_1_decimeter()
         {
             var oneDM = new Decimeter(1);
-            Assert.AreEqual(new Centimeter(11), oneCM + oneDM);
+            (oneCM + oneDM).should_be(new Centimeter(11));
         }
 
         [Test]
         public void should_equal_101_centimeters_given_1_centimeter_and_1_meter()
         {
             var oneM = new Meter(1);
-            Assert.AreEqual(new Centimeter(101), oneCM + oneM);
+            (oneCM + oneM).should_be(new Centimeter(101));
         }
     }
 }

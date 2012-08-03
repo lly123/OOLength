@@ -29,5 +29,20 @@ namespace OOWorkshopTest
         {
             Assert.AreEqual(expectedMeter, decimeter);
         }
+
+        public static void should_be(this Centimeter centimeter, Centimeter expectedCentimeter)
+        {
+            Assert.AreEqual(centimeter, expectedCentimeter);
+        }
+
+        public static void should_be(this Centimeter centimeter, Decimeter expectedDecimeter)
+        {
+            Assert.AreEqual(centimeter, expectedDecimeter);
+        }
+
+        public static void should_be(this Centimeter centimeter, Meter expectedMeter)
+        {
+            Assert.AreEqual(centimeter, expectedMeter);
+        }
     }
 }

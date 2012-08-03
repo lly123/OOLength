@@ -5,28 +5,28 @@ using System.Text;
 
 namespace OOWorkshop
 {
-    public class Centimeter
+    public class Centimeter : Length
     {
         public Centimeter(double number)
         {
             Number = number;
         }
 
-        protected double Number { get; private set; }
-
-        public static Centimeter operator +(Centimeter cm1, Centimeter cm2)
+        public static Centimeter operator +(Centimeter cm, Length length)
         {
-            return new Centimeter(cm1.Number + cm2.Number);
-        }
+            int factor = 1;
 
-        public static Centimeter operator +(Centimeter cm, Decimeter dm)
-        {
-            return new Centimeter(cm.Number + 10 * dm.Number);
-        }
+            if (length is Decimeter)
+            {
+                factor = 10;
+            } 
+            
+            if (length is Meter)
+            {
+                factor = 100;
+            }
 
-        public static Centimeter operator +(Centimeter cm, Meter m)
-        {
-            return new Centimeter(cm.Number + 100 * m.Number);
+            return new Centimeter(cm.Number + factor * length.Number);
         }
 
         public override bool Equals(object obj)

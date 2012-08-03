@@ -5,23 +5,23 @@ using System.Text;
 
 namespace OOWorkshop
 {
-    public class Decimeter
+    public class Decimeter : Length
     {
-        public double Number { get; private set; }
-
         public Decimeter(double number)
         {
-            this.Number = number;
+            Number = number;
         }
 
-        public static Decimeter operator +(Decimeter dm1, Decimeter dm2)
+        public static Decimeter operator +(Decimeter dm, Length length)
         {
-            return new Decimeter(dm1.Number + dm2.Number);
-        }
+            int factor = 1;
 
-        public static Decimeter operator +(Decimeter dm, Meter m)
-        {
-            return new Decimeter(dm.Number + 10 * m.Number);
+            if (length is Meter)
+            {
+                factor = 10;
+            }
+
+            return new Decimeter(dm.Number + factor * length.Number);
         }
 
         public override bool Equals(object obj)

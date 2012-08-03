@@ -5,14 +5,12 @@ using System.Text;
 
 namespace OOWorkshop
 {
-    public class Meter
+    public class Meter : Length
     {
         public Meter(double number)
         {
-            this.Number = number;
+            Number = number;
         }
-
-        public double Number { get; private set; }
 
         public static Meter operator +(Meter m1, Meter m2)
         {

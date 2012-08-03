@@ -19,7 +19,7 @@ namespace OOWorkshop
 
         public static Decimeter operator +(Decimeter dm, Length length)
         {
-            return new Decimeter((dm.Number * dm.Factor() + length.Factor() * length.Number) / dm.Factor());
+            return new Decimeter((dm.ConvertToCM() + length.ConvertToCM()) / dm.Factor());
         }
 
         public override bool Equals(object obj)

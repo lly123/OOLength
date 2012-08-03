@@ -19,7 +19,7 @@ namespace OOWorkshop
 
         public static Centimeter operator +(Centimeter cm, Length length)
         {
-            return new Centimeter(cm.Number + length.Factor() * length.Number);
+            return new Centimeter(cm.Number + length.ConvertToCM());
         }
 
         public override bool Equals(object obj)

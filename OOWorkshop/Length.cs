@@ -11,5 +11,10 @@ namespace OOWorkshop
         public double Number { get; protected set; }
 
         public abstract int Factor();
+
+        public double ConvertToCM()
+        {
+            return Number * Factor();
+        }
     }
 }

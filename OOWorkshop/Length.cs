@@ -9,7 +9,7 @@ namespace OOWorkshop
 
         public abstract int Factor();
 
-        public double ConvertToCM()
+        private double ConvertToBaseUnit()
         {
             return Number * Factor();
         }
@@ -18,17 +18,17 @@ namespace OOWorkshop
         {
             if (length1 is Centimeter)
             {
-                return new Centimeter((length1.ConvertToCM() + length2.ConvertToCM()) / length1.Factor());                
+                return new Centimeter((length1.ConvertToBaseUnit() + length2.ConvertToBaseUnit()) / length1.Factor());                
             }
 
             if (length1 is Decimeter)
             {
-                return new Decimeter((length1.ConvertToCM() + length2.ConvertToCM()) / length1.Factor());
+                return new Decimeter((length1.ConvertToBaseUnit() + length2.ConvertToBaseUnit()) / length1.Factor());
             }
 
             if (length1 is Meter)
             {
-                return new Meter((length1.ConvertToCM() + length2.ConvertToCM()) / length1.Factor());
+                return new Meter((length1.ConvertToBaseUnit() + length2.ConvertToBaseUnit()) / length1.Factor());
             }
 
             throw new NotImplementedException();
@@ -41,8 +41,8 @@ namespace OOWorkshop
             if (obj is Length)
             {
                 var length = obj as Length;
-                var currentLengthToCm = Math.Floor(ConvertToCM());
-                var otherLengthToCm = Math.Floor(length.ConvertToCM());
+                var currentLengthToCm = Math.Floor(ConvertToBaseUnit());
+                var otherLengthToCm = Math.Floor(length.ConvertToBaseUnit());
                 return currentLengthToCm.Equals(otherLengthToCm);
             }
 

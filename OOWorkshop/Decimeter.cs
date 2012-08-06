@@ -17,11 +17,6 @@ namespace OOWorkshop
             return 10;
         }
 
-        public static Decimeter operator +(Decimeter dm, Length length)
-        {
-            return new Decimeter((dm.ConvertToCM() + length.ConvertToCM()) / dm.Factor());
-        }
-
         public override bool Equals(object obj)
         {
             var decimeter = obj as Decimeter;

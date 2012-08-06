@@ -22,7 +22,13 @@ namespace OOWorkshop
             if (obj is Meter)
             {
                 var meter = obj as Meter;
-                return Number.Equals(meter.Number*100);
+                return Number.Equals(meter.Number * 100);
+            }
+
+            if (obj is Decimeter)
+            {
+                var decimeter = obj as Decimeter;
+                return Number.Equals(decimeter.Number*10);
             }
 
             if (obj is Centimeter)

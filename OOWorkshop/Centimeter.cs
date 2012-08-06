@@ -19,8 +19,19 @@ namespace OOWorkshop
 
         public override bool Equals(object obj)
         {
-            var centimeter = obj as Centimeter;
-            return centimeter.Number.Equals(Number);
+            if (obj is Meter)
+            {
+                var meter = obj as Meter;
+                return Number.Equals(meter.Number*100);
+            }
+
+            if (obj is Centimeter)
+            {
+                var centimeter = obj as Centimeter;
+                return Number.Equals(centimeter.Number);
+            }
+           
+            throw new NotImplementedException();
         }
 
         public override int GetHashCode()

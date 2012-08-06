@@ -37,5 +37,13 @@ namespace OOWorkshopTest
             var oneM = new Meter(1);
             (oneCM + oneM).should_be(new Centimeter(101));
         }
+
+        [Test]
+        public void should_1_meter_equals_100_centimeters()
+        {
+            var _100CM = new Centimeter(100);
+            var _1M = new Meter(1);
+            _1M.should_be(_100CM);
+        }
     }
 }

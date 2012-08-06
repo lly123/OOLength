@@ -10,47 +10,50 @@ namespace OOWorkshopTest
     [TestFixture]
     class DecimeterTest
     {
-        private Decimeter oneDM;
-        private Meter oneM;
-        private Decimeter twoDMs;
+        private Decimeter _1Dm;
+        private Decimeter _2Dm;
+        private Decimeter _11Dm;
+        private Meter _1M;
 
         [TestFixtureSetUp]
         public void Setup()
         {
-            oneDM = new Decimeter(1);
-            oneM = new Meter(1);
-            twoDMs = new Decimeter(2);
+            _1Dm = new Decimeter(1);
+            _2Dm = new Decimeter(2);
+            _11Dm = new Decimeter(11);
+            _1M = new Meter(1);
         }
 
         [Test]
         public void should_equal_2dm_given_1dm_plus_1dm()
         {
-            (oneDM + oneDM).should_be(new Decimeter(2));
+            (_1Dm + _1Dm).should_be(_2Dm);
         }
 
         [Test]
         public void should_equal_11dm_given_1m_plus_1dm()
         {
-            (oneDM + oneM).should_be(new Decimeter(11));
+            (_1Dm + _1M).should_be(_11Dm);
         }
 
         [Test]
         public void should_not_equal_11dm_given_1m_plus_2dm()
         {
-            (twoDMs + oneM).should_not_be(new Decimeter(11));
+            (_2Dm + _1M).should_not_be(_11Dm);
         }
 
         [Test]
         public void should_equal_1_point_1_meter_given_1m_plus_10dm()
         {
-            var tenDMs = new Decimeter(10);
-            (tenDMs + oneM).should_be(new Meter(2));
+            var _10Dm = new Decimeter(10);
+            var _2M = new Meter(2);
+            (_10Dm + _1M).should_be(_2M);
         }
 
         [Test]
         public void should_equal_1_point_1_meters_given_1m_plus_1dm()
         {
-            (oneDM + oneM).should_be(new Meter(1.1));
+            (_1Dm + _1M).should_be(new Meter(1.1));
         }
     }
 }

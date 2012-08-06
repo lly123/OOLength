@@ -5,9 +5,14 @@ namespace OOWorkshop
    
     public abstract class Length
     {
-        public double Number { get; protected set; }
+        protected double Number { get; private set; }
 
         public abstract int Factor();
+
+        protected Length(double number)
+        {
+            Number = number;
+        }
 
         private double ConvertToBaseUnit()
         {

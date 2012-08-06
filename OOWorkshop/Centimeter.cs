@@ -2,9 +2,8 @@
 {
     public class Centimeter : Length
     {
-        public Centimeter(double number)
+        public Centimeter(double number) : base(number)
         {
-            Number = number;
         }
 
         public override int Factor()

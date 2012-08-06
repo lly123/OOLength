@@ -2,13 +2,8 @@
 {
     public class Meter : Length
     {
-        public Meter(double number) : base(number)
+        public Meter(double number) : base(number, M_FACTOR)
         {
-        }
-
-        public override int Factor()
-        {
-            return 100;
         }
 
         public static Meter operator -(Meter m1, Meter m2)

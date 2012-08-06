@@ -5,23 +5,27 @@ namespace OOWorkshop
    
     public abstract class Length
     {
+        protected const int CM_FACTOR = 1;
+        protected const int DM_FACTOR = 10;
+        protected const int M_FACTOR = 100;
+
         protected double Number { get; private set; }
+        private readonly int factor;
 
-        public abstract int Factor();
-
-        protected Length(double number)
+        protected Length(double number, int factor)
         {
             Number = number;
+            this.factor = factor;
         }
 
         private double ConvertToBaseUnit()
         {
-            return Number * Factor();
+            return Number * factor;
         }
 
         public static Length operator +(Length length1, Length length2)
         {
-            var lengthNumberAccordingToLeftLengthUnit = (length1.ConvertToBaseUnit() + length2.ConvertToBaseUnit()) / length1.Factor();
+            var lengthNumberAccordingToLeftLengthUnit = (length1.ConvertToBaseUnit() + length2.ConvertToBaseUnit()) / length1.factor;
 
             var rightLengthType = length1.GetType();
             var defaultConstructor = rightLengthType.GetConstructor(new []{ typeof(double) });

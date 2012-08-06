@@ -2,13 +2,8 @@
 {
     public class Decimeter : Length
     {
-        public Decimeter(double number) : base(number)
+        public Decimeter(double number) : base(number, DM_FACTOR)
         {
-        }
-
-        public override int Factor()
-        {
-            return 10;
         }
     }
 }

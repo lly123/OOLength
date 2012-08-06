@@ -43,7 +43,7 @@ namespace OOWorkshopTest
         }
 
         [Test]
-        public void should_equal_1_point_1_meter_given_1m_plus_10dm()
+        public void should_equal_2_meter_given_1m_plus_10dm()
         {
             var _10Dm = new Decimeter(10);
             var _2M = new Meter(2);

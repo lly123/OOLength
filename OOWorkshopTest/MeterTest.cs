@@ -10,47 +10,47 @@ namespace OOWorkshopTest
     [TestFixture]
     public class MeterTest
     {
-        private Meter oneMeter;
-        private Meter twoMeters;
-        private Meter threeMeters;
+        private Meter _1M;
+        private Meter _2M;
+        private Meter _3M;
 
         [TestFixtureSetUp]
         public void setUp()
         {
-            oneMeter = new Meter(1);
-            twoMeters = new Meter(2);
-            threeMeters = new Meter(3);
+            _1M = new Meter(1);
+            _2M = new Meter(2);
+            _3M = new Meter(3);
         }
 
         [Test]
         public void should_equal_2m_given_1m_plus_1m()
         {
-            (oneMeter + oneMeter).should_be(twoMeters);
+            (_1M + _1M).should_be(_2M);
         }
 
         [Test]
         public void should_not_equal_2m_given_3m_plus_1m()
         {
-            (threeMeters + oneMeter).should_not_be(twoMeters);
+            (_3M + _1M).should_not_be(_2M);
         }
 
         [Test]
         public void should_equal_1m_given_2m_minus_1m()
         {
-            (twoMeters - oneMeter).should_be(oneMeter);
+            (_2M - _1M).should_be(_1M);
         }
 
         [Test]
         public void should_not_equal_1m_given_3m_minus_1m()
         {
-            (threeMeters - oneMeter).should_not_be(oneMeter);
+            (_3M - _1M).should_not_be(_1M);
         }
 
         [Test]
         [ExpectedException(typeof(NegativeValueException))]
         public void should_throw_exception_given_1m_minius_3m()
         {
-            var meaningless = oneMeter - threeMeters;
+            var meaningless = _1M - _3M;
         }
     }
 

@@ -10,32 +10,35 @@ namespace OOWorkshopTest
     [TestFixture]
     class CentimeterTest
     {
-        private Centimeter oneCM;
+        private Centimeter _1Cm;
 
         [TestFixtureSetUp]
         public void Setup()
         {
-            oneCM = new Centimeter(1);
+            _1Cm = new Centimeter(1);
         }
 
         [Test]
         public void should_equal_2cm_given_1cm_plus_1cm()
         {
-            (oneCM + oneCM).should_be(new Centimeter(2));
+            var _2Cm = new Centimeter(2);
+            (_1Cm + _1Cm).should_be(_2Cm);
         }
 
         [Test]
         public void should_equal_11_centimeters_given_1_centimeter_and_1_decimeter()
         {
-            var oneDM = new Decimeter(1);
-            (oneCM + oneDM).should_be(new Centimeter(11));
+            var _1Dm = new Decimeter(1);
+            var _11Cm = new Centimeter(11);
+            (_1Cm + _1Dm).should_be(_11Cm);
         }
 
         [Test]
         public void should_equal_101_centimeters_given_1_centimeter_and_1_meter()
         {
-            var oneM = new Meter(1);
-            (oneCM + oneM).should_be(new Centimeter(101));
+            var _1M = new Meter(1);
+            var _101Cm = new Centimeter(101);
+            (_1Cm + _1M).should_be(_101Cm);
         }
 
         [Test]

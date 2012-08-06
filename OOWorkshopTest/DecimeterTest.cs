@@ -14,12 +14,14 @@ namespace OOWorkshopTest
         private Decimeter _2Dm;
         private Decimeter _11Dm;
         private Meter _1M;
+        private Decimeter _10Dm;
 
         [TestFixtureSetUp]
         public void Setup()
         {
             _1Dm = new Decimeter(1);
             _2Dm = new Decimeter(2);
+            _10Dm = new Decimeter(10);
             _11Dm = new Decimeter(11);
             _1M = new Meter(1);
         }
@@ -45,7 +47,6 @@ namespace OOWorkshopTest
         [Test]
         public void should_equal_2_meter_given_1m_plus_10dm()
         {
-            var _10Dm = new Decimeter(10);
             var _2M = new Meter(2);
             (_10Dm + _1M).should_be(_2M);
         }
@@ -54,6 +55,19 @@ namespace OOWorkshopTest
         public void should_equal_1_point_1_meters_given_1m_plus_1dm()
         {
             (_1Dm + _1M).should_be(new Meter(1.1));
+        }
+
+        [Test]
+        public void should_10Dm_equal_1M()
+        {
+            _1M.should_be(_10Dm);
+        }
+
+        [Test]
+        public void should_1Dm_equals_10Cm()
+        {
+            var _10Cm = new Centimeter(10);
+            _10Cm.should_be(_1Dm);
         }
     }
 }

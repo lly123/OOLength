@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace OOWorkshop
 {
@@ -35,6 +32,26 @@ namespace OOWorkshop
             }
 
             throw new NotImplementedException();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(this, obj)) return true;
+
+            if (obj is Length)
+            {
+                var length = obj as Length;
+                var currentLengthToCm = Math.Floor(ConvertToCM());
+                var otherLengthToCm = Math.Floor(length.ConvertToCM());
+                return currentLengthToCm.Equals(otherLengthToCm);
+            }
+
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return Number.GetHashCode();
         }
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace OOWorkshop
+﻿namespace OOWorkshop
 {
     public class Meter : Length
     {
@@ -21,28 +16,6 @@ namespace OOWorkshop
         {
             if (m1.Number - m2.Number < 0) throw new NegativeValueException();
             return new Meter(m1.Number - m2.Number);
-        }
-
-        public override bool Equals(object obj)
-        {
-            var meter = ConvertToMeter(obj);
-            return meter.Number.Equals(Number);
-        }
-
-        private Meter ConvertToMeter(object obj)
-        {
-            if (obj is Decimeter) return ConvertDecimeterToMeter(obj as Decimeter);
-            return (obj as Meter);
-        }
-
-        private Meter ConvertDecimeterToMeter(Decimeter decimeter)
-        {
-            return new Meter(decimeter.Number/10);
-        }
-
-        public override int GetHashCode()
-        {
-            return Number.GetHashCode();
         }
     }
 }

@@ -2,8 +2,5 @@
 
 namespace OOWorkshop
 {
-    public class NegativeValueException: Exception
-    {
-         
-    }
+    public class NegativeValueException: Exception {}
 }

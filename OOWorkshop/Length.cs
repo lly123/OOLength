@@ -16,22 +16,11 @@ namespace OOWorkshop
 
         public static Length operator +(Length length1, Length length2)
         {
-            if (length1 is Centimeter)
-            {
-                return new Centimeter((length1.ConvertToBaseUnit() + length2.ConvertToBaseUnit()) / length1.Factor());                
-            }
+            var lengthNumberAccordingToLeftLengthUnit = (length1.ConvertToBaseUnit() + length2.ConvertToBaseUnit()) / length1.Factor();
 
-            if (length1 is Decimeter)
-            {
-                return new Decimeter((length1.ConvertToBaseUnit() + length2.ConvertToBaseUnit()) / length1.Factor());
-            }
-
-            if (length1 is Meter)
-            {
-                return new Meter((length1.ConvertToBaseUnit() + length2.ConvertToBaseUnit()) / length1.Factor());
-            }
-
-            throw new NotImplementedException();
+            var rightLengthType = length1.GetType();
+            var defaultConstructor = rightLengthType.GetConstructor(new []{ typeof(double) });
+            return defaultConstructor.Invoke( new object[]{ lengthNumberAccordingToLeftLengthUnit }) as Length;
         }
 
         public override bool Equals(object obj)
